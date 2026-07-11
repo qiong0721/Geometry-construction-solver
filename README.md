@@ -1,2 +1,146 @@
-# Geometry-construction-solver
-A geometry drawing and solving tool written in C++ and Kotlin, applicable to Windows desktop and Android platforms.
+#  Geometry Solver (几何作图求解器)
+
+[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Windows-blue)](https://github.com)
+[![Language](https://img.shields.io/badge/Language-C++%20%7C%20Kotlin%20%7C%20Compose-orange)](https://github.com)
+[![License](https://img.shields.io/badge/License-MIT-green)](https://github.com)
+
+一个基于暴力搜索算法（Brute Force Search）的几何作图问题求解器。本项目包含 **Android 移动端** 和 **Windows 桌面端** 两个版本，旨在寻找尺规作图、单尺作图或单规作图问题的最优解（或可行解）。
+
+---
+
+##  项目简介
+
+本项目致力于解决经典的几何作图问题。用户可以通过输入初始条件（已知点、线、圆）和目标条件，程序将通过算法自动搜索作图步骤。
+
+项目分为两个平台实现：
+*   **Windows 桌面端**：基于 C++ 和 EasyX 图形库，提供直观的图形化交互界面，适合在 PC 上进行演示和调试。
+*   **Android 移动端**：基于 Kotlin 和 Jetpack Compose 开发，通过 JNI 调用 C++ 核心算法，方便随时随地进行计算和查看步骤。
+
+---
+
+##  核心特性
+
+*   **多模式支持**：
+    *   **尺规作图**：同时使用直尺和圆规。
+    *   **单尺作图**：仅使用直尺。
+    *   **单规作图**：仅使用圆规。
+*   **暴力搜索算法**：基于 3 进制编码枚举所有可能的作图步骤，确保在小规模问题下能找到解。
+*   **可视化演示**：
+    *   Windows 端实时绘制作图过程。
+    *   Android 端支持步骤回放、暂停和重置。
+*   **跨平台核心**：核心求解逻辑使用标准 C++ 编写，通过 JNI 在 Android 端复用，保证算法一致性。
+
+---
+
+## 🧠 算法原理与说明
+
+本求解器采用 **暴力枚举 (Brute Force Search)** 策略。
+
+1.  **编码方式**：
+    *   对于两点 A、B，共有 3 种基本操作：
+        *   `0`: 以 A 为圆心，过 B 作圆。
+        *   `1`: 以 B 为圆心，过 A 作圆。
+        *   `2`: 作过 A、B 的直线。
+    *   一个 `n` 步的作图过程可以表示为一个 `n` 位的 3 进制数（例如 `(012)_3`）。
+2.  **搜索过程**：
+    *   程序从 0 开始遍历所有可能的编码组合。
+    *   对于单尺或单规模式，分别使用 1 位 2 进制数进行枚举。
+    *   时间复杂度约为 `O(3^n)`，因此仅适用于步数较少的问题。
+3.  **精度控制**：
+    *   计算精度设定为 `1e-8`。输入坐标或方程时建议使用小数，复杂问题建议保留 9 位以上小数以防精度误差导致的误判。
+
+---
+
+##  Windows 桌面端指南
+
+Windows 版本提供了完整的图形用户界面，基于 Visual Studio 和 EasyX 开发。
+
+### 环境依赖
+*   **开发环境**：[Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/)
+*   **图形库**：[EasyX 图形库](https://easyx.cn/t/download) (请确保已正确配置)
+*   **语言标准**：C++17
+
+### 使用说明
+1.  下载Windows项目中的`作图.zip`，里面包含了主程序`作图.exe`以及各种dll依赖。
+2.  打开`作图.exe`
+3. **选择模式**：在主界面选择“尺规作图”、“单尺作图”或“单规作图”。
+4. **设置限制**：输入最大步数限制（建议小于 20 步）。
+5. **输入数据**：
+    *   依次输入目标元素（点/线/圆）的数量及坐标/方程参数。
+    *   输入初始已知条件的数量及数据。
+6. **开始求解**：程序将显示搜索进度百分比。找到解后，会自动演示作图过程。
+
+---
+
+##  Android 移动端指南
+
+Android 版本提供了现代化的 Material Design 界面，利用 Jetpack Compose 构建。
+
+### 环境依赖
+*   **开发环境**：[Android Studio](https://developer.android.google.cn/studio?hl=zh-cn)
+*   **最低配置**: 仅支持SDK29及以上版本
+
+### 项目结构
+*   **UI 层**：`MainActivity.kt` (Jetpack Compose)
+*   **逻辑层**：`Solver.kt` (JNI 接口), `ResultStep.kt` (数据类)
+*   **原生层**：`solver.cpp`, `solver.h`, `CMakeLists.txt`
+
+### 使用说明：
+1. 直接安装Android项目中的 `几何作图求解器-release.apk` 文件
+2. **选择模式**：
+    * 点击左上角选择栏选择作图模式
+2. **向导式输入**：
+    *   点击浮动按钮 `+` 开始。
+    *   按步骤设置：步数限制 -> 目标类型 -> 目标数据 -> 初始条件（点/线/圆）。
+3. **求解计算**：
+    *   点击“开始计算”，后台线程调用 C++ 核心库进行暴力搜索。
+    *   界面显示实时搜索进度。
+4. **结果展示**：
+    *   求解成功后，Canvas 区域会绘制图形。
+    *   底部列表显示详细步骤文本（如“连接点 P1 和 P2”）。
+    *   支持播放/暂停/上一步/下一步控制动画演示。
+
+---
+
+##  注意事项与局限性
+> **重要提示**：在使用本程序前，请务必了解以下局限性：
+
+1.  **规模限制**：由于算法复杂度为指数级，程序仅能解决中小规模问题（建议步数 < 20）。步数过高会导致计算时间过长和内存过大。
+2.  **最优解问题**：由于该算法中不包括“任取点”操作，所以当最优解涉及“在平面/线/圆上任取一点”这类操作时，程序无法计算出此类解。此时需事先取好点，并作为初始条件输入。
+3.  **精度问题**：由于浮点数计算精度（`1e-8`），对于极其复杂的几何关系，可能会存在“假解”或漏解的情况。
+4.  **工具定义**：
+    *   **圆规**：指“松圆规”（Collapsible Compass），即只能作以 A 为圆心且过点 B 的圆。
+    *   **直尺**：指无刻度直尺，只能作过不重合两点的直线。
+    *   **步数**：指松圆规与直尺的使用次数总和，描点不计入步数。
+
+---
+
+##  项目文件结构
+
+```text
+.
+├── android/                      # Android 项目源码
+│   ├── app/
+│   │   ├── src/main/cpp/         # C++ 核心代码 (solver.cpp, solver.h)
+│   │   └── src/main/java/        # Kotlin 代码 (MainActivity, Solver)
+│   └── 几何作图求解器-release.apk   # 成品apk文件
+├── windows/                      # Windows 项目源码
+│   └── bs2.0.cpp                 # 主代码
+│   └── 作图.sln                   # 解决方案
+│   └── 作图.exe                   # 可执行程序
+└── README.md                     # 项目说明文档
+```
+
+---
+
+##  贡献与致谢
+
+本项目由个人开发者维护。如果你发现了 Bug 或有更好的算法优化建议，欢迎提交 Issue 或 Pull Request。
+
+*   **算法核心**：C++
+*   **Android UI**：Jetpack Compose
+*   **Windows UI**：EasyX
+
+
+
+_春日野穹、大好きだ_
