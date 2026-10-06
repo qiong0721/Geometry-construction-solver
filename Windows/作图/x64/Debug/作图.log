@@ -1,0 +1,26 @@
+﻿  bs2.0.cpp
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(303,22): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(303,18): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(303,14): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(303,10): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(328,58): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(328,38): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(336,68): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(336,53): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(336,33): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(360,142): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(360,81): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(360,49): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(379,70): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(379,48): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(390,81): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(390,63): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(390,40): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(406,68): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(406,45): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(518,30): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(563,30): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(605,34): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(643,34): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\11612\Desktop\几何作图求解器v2.0\bs2.0.cpp(959,1): warning C4102: “END”: 未引用的标签
+  作图.vcxproj -> C:\Users\11612\Desktop\几何作图求解器v2.0\x64\Debug\作图.exe
