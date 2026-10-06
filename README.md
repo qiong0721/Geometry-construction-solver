@@ -55,13 +55,8 @@
 
 Windows 版本提供了完整的图形用户界面，基于 Visual Studio 和 EasyX 开发。
 
-### 环境依赖
-*   **开发环境**：[Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/)
-*   **图形库**：[EasyX 图形库](https://easyx.cn/t/download) (请确保已正确配置)
-*   **语言标准**：C++17
-
 ### 使用说明
-1.  下载Windows项目中的`作图.zip`，里面包含了主程序`作图.exe`以及各种dll依赖。
+1.  下载release中的`作图.zip`，里面包含了主程序`作图.exe`以及各种dll依赖。
 2.  打开`作图.exe`
 3. **选择模式**：在主界面选择“尺规作图”、“单尺作图”或“单规作图”。
 4. **设置限制**：输入最大步数限制（建议小于 20 步）。
@@ -70,23 +65,19 @@ Windows 版本提供了完整的图形用户界面，基于 Visual Studio 和 Ea
     *   输入初始已知条件的数量及数据。
 6. **开始求解**：程序将显示搜索进度百分比。找到解后，会自动演示作图过程。
 
+### 环境依赖
+*   **开发环境**：[Visual Studio 2022](https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/)
+*   **图形库**：[EasyX 图形库](https://easyx.cn/t/download) (请确保已正确配置)
+*   **语言标准**：C++17
+
 ---
 
 ##  Android 移动端指南
 
 Android 版本提供了现代化的 Material Design 界面，利用 Jetpack Compose 构建。
 
-### 环境依赖
-*   **开发环境**：[Android Studio](https://developer.android.google.cn/studio?hl=zh-cn)
-*   **最低配置**: 仅支持SDK29及以上版本
-
-### 项目结构
-*   **UI 层**：`MainActivity.kt` (Jetpack Compose)
-*   **逻辑层**：`Solver.kt` (JNI 接口), `ResultStep.kt` (数据类)
-*   **原生层**：`solver.cpp`, `solver.h`, `CMakeLists.txt`
-
 ### 使用说明：
-1. 直接安装Android项目中的 `几何作图求解器-release.apk` 文件
+1. 直接安装release中的 `几何作图求解器-release.apk` 文件
 2. **选择模式**：
     * 点击左上角选择栏选择作图模式
 2. **向导式输入**：
@@ -99,6 +90,17 @@ Android 版本提供了现代化的 Material Design 界面，利用 Jetpack Comp
     *   求解成功后，Canvas 区域会绘制图形。
     *   底部列表显示详细步骤文本（如“连接点 P1 和 P2”）。
     *   支持播放/暂停/上一步/下一步控制动画演示。
+
+### 环境依赖
+*   **开发环境**：[Android Studio](https://developer.android.google.cn/studio?hl=zh-cn)
+*   **最低配置**: 仅支持SDK29及以上版本
+
+### 项目结构
+*   **UI 层**：`MainActivity.kt` (Jetpack Compose)
+*   **逻辑层**：`Solver.kt` (JNI 接口), `ResultStep.kt` (数据类)
+*   **原生层**：`solver.cpp`, `solver.h`, `CMakeLists.txt`
+
+
 
 ---
 
