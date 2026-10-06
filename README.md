@@ -77,7 +77,7 @@ Windows 版本提供了完整的图形用户界面，基于 Visual Studio 和 Ea
 Android 版本提供了现代化的 Material Design 界面，利用 Jetpack Compose 构建。
 
 ### 使用说明：
-1. 直接安装release中的 `几何作图求解器-release.apk` 文件
+1. 直接下载release中的 `几何作图求解器-release.zip` 文件
 2. **选择模式**：
     * 点击左上角选择栏选择作图模式
 2. **向导式输入**：
